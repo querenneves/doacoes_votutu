@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doações - ONG Brasilândia</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <style>
+        .btn-pix {
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.1);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        .copied-alert {
+            display: none;
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container mt-5">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap" rel="stylesheet"> <!-- Fonte de Pixação -->
+    <style>
+        .graffiti-text {
+            font-family: 'Permanent Marker', cursive; /* Aplica a fonte de pixação */
+            color: #000000; /* Cor do texto */
+            text-shadow: 2px 2px 4px #FF0000; /* Sombra para dar destaque */
+        }
+    </style>
+    <h1 class="text-center graffiti-text">Brasilândia não é disneylândia, doe.</h1>
+    <div class="text-center">
+        <button class="btn btn-primary btn-lg btn-pix" onclick="copyPix()">Copiar Chave PIX</button>
+        <p class="graffiti-text">Sua contribuição pode fazer a diferença!</p>
+    </div>
+    <div class="copied-alert alert alert-success" id="copiedAlert">Chave PIX copiada, confira o remetente "Instituto Ações Sociais Vo TuTu"!</div>
+
+    <div id="carouselExampleIndicators" class="carousel slide my-4" data-ride="carousel">
+        <ol class="carousel-indicators">
+            <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+        </ol>
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img class="d-block w-100" src="img/cursos.png" alt="Primeira foto">
+            </div>
+            <div class="carousel-item">
+                <img class="d-block w-100" src="img/votutu.png" alt="Segunda foto">
+            </div>
+            <div class="carousel-item">
+                <img class="d-block w-100" src="img/vania.png" alt="Terceira foto">
+            </div>
+        </div>
+        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Anterior</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Próximo</span>
+        </a>
+    </div>
+    <div class="row mt-4">
+        <div class="col-md-4 mb-3">
+            <button class="btn btn-secondary btn-block" onclick="donate(50)">Doar R$50</button>
+        </div>
+        <div class="col-md-4 mb-3">
+            <button class="btn btn-secondary btn-block" onclick="donate(100)">Doar R$100</button>
+        </div>
+        <div class="col-md-4 mb-3">
+            <button class="btn btn-secondary btn-block" onclick="donate(200)">Doar R$200</button>
+        </div>
+    </div>
+
+   <center><p>Esses valores pré-definidos ajudarão em doações e cursos que a instituição oferece à comunidade da Brasilândia.</p></center>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+<script>
+    function copyPix() {
+        navigator.clipboard.writeText('42155551000174').then(function() {
+            const alertBox = document.getElementById('copiedAlert');
+            alertBox.style.display = 'block';
+            setTimeout(function() {
+                alertBox.style.display = 'none';
+            }, 2000);
+        }, function(err) {
+            console.error('Não foi possível copiar a chave PIX: ', err);
+        });
+    }
+
+    function donate(amount) {
+        console.log('Doando', amount, 'Reais');
+        // Aqui você adicionaria a lógica para processar a doação
+    }
+</script>
+
+</body>
+</html>
